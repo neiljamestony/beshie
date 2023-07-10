@@ -6,7 +6,7 @@ export default function Index() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const tRows = 10;
   const tColumns = 60;
-  const disableButton: boolean = bs === ('' || ' ');
+  const disableButton: boolean = bs === ('' && ' ');
 
   const convert_text = () => {
     const result: string = bs.replace(/ /g, '🤸‍♀️');
@@ -49,12 +49,11 @@ export default function Index() {
           readOnly
         />
       </div>
-      {disableButton && (
-        <span data-tooltip='Tooltip help here!' data-flow='right'>
-          CSS Tooltips
-        </span>
-      )}
-      <button className='copy-button' onClick={() => copy_text()}>
+      <button
+        className='copy-button'
+        onClick={() => copy_text()}
+        disabled={disableButton}
+      >
         {!isLoading ? 'copy' : 'copied!'}
       </button>
     </div>

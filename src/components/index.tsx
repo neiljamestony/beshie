@@ -52,7 +52,7 @@ export default function Index() {
       <button
         className='copy-button'
         onClick={() => copy_text()}
-        disabled={disableButton}
+        disabled={res === ''}
       >
         {!isLoading ? 'copy' : 'copied!'}
       </button>
